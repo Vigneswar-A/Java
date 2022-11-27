@@ -173,8 +173,6 @@ class Board implements ActionListener {
         if (equal(2, 4, 6)) {
             winner(2, 4, 6);
         }
-
-        System.out.println(moves);
         if (++moves == 9)
             draw();
         switchPlayer();
