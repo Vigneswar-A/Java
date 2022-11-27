@@ -110,15 +110,14 @@ class Board implements ActionListener {
             board[i].setText("");
             board[i].setForeground(black);
         }
+        moves = 0;
         gameAlive = true;
         if (!AIPlay || !AI.isX)
             player = "X";
         else {
             if (AIPlay)
                 switchPlayer();
-            player = "O";
         }
-        moves = 0;
     }
 
     private void changeMode() {
@@ -175,6 +174,7 @@ class Board implements ActionListener {
             winner(2, 4, 6);
         }
 
+        System.out.println(moves);
         if (++moves == 9)
             draw();
         switchPlayer();
