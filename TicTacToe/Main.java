@@ -49,6 +49,7 @@ class Board implements ActionListener {
         root.setLayout(null);
         root.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         root.setTitle("Tic Tac Toe");
+        root.setResizable(false);
 
         boardPanel = new JPanel();
         boardPanel.setBounds(50, 0, 600, 600);
