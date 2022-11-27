@@ -1,8 +1,10 @@
 import javax.swing.*;
+import java.util.*;
 
 public class AI {
     String board[] = new String[9];
     boolean isX;
+    Random Choice = new Random();
 
     AI(String player) {
         if (player.equals("X"))
@@ -75,7 +77,8 @@ public class AI {
                 temp = minimax(false, i);
                 score = temp[0];
 
-                if (score > bestScore || (score == bestScore && temp[1] < minDepth)) {
+                if (score > bestScore || (score == bestScore && temp[1] < minDepth) || (score == bestScore
+                        && temp[1] == minDepth && Choice.nextBoolean())) {
                     bestScore = score;
                     minDepth = temp[1];
                     bestMove = i;
@@ -103,7 +106,8 @@ public class AI {
                 temp = minimax(true, best);
                 score = temp[0];
 
-                if (score < bestScore || (score == bestScore && temp[1] < minDepth)) {
+                if (score < bestScore || (score == bestScore && temp[1] < minDepth) || (score == bestScore
+                        && temp[1] == minDepth && Choice.nextBoolean())) {
                     bestScore = score;
                     minDepth = temp[1];
                     bestMove = i;
